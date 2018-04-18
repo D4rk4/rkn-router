@@ -1,0 +1,11 @@
+# TO The Core 
+auto tun1
+iface tun1 inet static
+    address 172.30.21.2
+    netmask 255.255.255.252
+    pre-up iptunnel add tun1 mode ipip local <YOUR VPS IP> remote <ROUTER IP> ttl 64
+    up ifconfig tun1 multicast
+    pointopoint 172.30.21.1
+    post-up ip addr add <YOUR VPS IP> peer <YOUR VPS DEF GW> dev <eth0>
+    post-down iptunnel del tun1
+
