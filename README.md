@@ -32,4 +32,6 @@ end
 */etc/rc.local* - не забываем включить NAT ;)
 
 Алсо нужно разрешить IP forward, без этого магии не случится:
-`echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf && sysctl -p`
+```
+echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf && sysctl -p
+```
